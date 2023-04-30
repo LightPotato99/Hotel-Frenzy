@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn1ybbles3wx"
+path="res://.godot/imported/asdfmovie Piano Sound.mp3-5dcce4e736cd15aaf2b73556ba0b1d16.mp3str"
+
+[deps]
+
+source_file="res://Sounds/asdfmovie Piano Sound.mp3"
+dest_files=["res://.godot/imported/asdfmovie Piano Sound.mp3-5dcce4e736cd15aaf2b73556ba0b1d16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

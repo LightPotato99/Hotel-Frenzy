@@ -1,0 +1,250 @@
+[gd_scene load_steps=17 format=3 uid="uid://cfwbabm803g11"]
+
+[ext_resource type="Script" path="res://Scripts/gameoverui.gd" id="1_1oqeo"]
+[ext_resource type="Texture2D" uid="uid://b465h730kdtsy" path="res://Graphics/Black.png" id="1_kh5k7"]
+[ext_resource type="Texture2D" uid="uid://btghinwtxxqgk" path="res://Graphics/Spotlight.png" id="2_5047h"]
+[ext_resource type="Texture2D" uid="uid://bc6bllx7btfq8" path="res://Graphics/Box1.png" id="3_kh1tw"]
+[ext_resource type="Texture2D" uid="uid://bx24kggi2qjum" path="res://Graphics/Clipboard.png" id="3_uvv6a"]
+[ext_resource type="Texture2D" uid="uid://ccx6uog4koval" path="res://Graphics/CharHeadSad.png" id="4_5vjxg"]
+[ext_resource type="FontFile" uid="uid://defj40fio570l" path="res://Fonts/Fragmentcore.otf" id="4_up07w"]
+[ext_resource type="FontFile" uid="uid://dxrgyguc77yru" path="res://Fonts/7SEGMENTALDIGITALDISPLAY.ttf" id="5_popu4"]
+[ext_resource type="Texture2D" uid="uid://c7moori2sx07t" path="res://Graphics/White.png" id="6_3e2ng"]
+[ext_resource type="AudioStream" uid="uid://bn1ybbles3wx" path="res://Sounds/asdfmovie Piano Sound.mp3" id="6_dls72"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfa5v"]
+font = ExtResource("5_popu4")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_cu787"]
+font = ExtResource("4_up07w")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhncd"]
+font = ExtResource("4_up07w")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_7036f"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timeover:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-127, -380)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ResultUI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -420)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qfh3e"]
+resource_name = "gameover"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timeover:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 3.36358, 1),
+"update": 0,
+"values": [Vector2(-127, -380), Vector2(-127, -380), Vector2(-127, -150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ResultUI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 0.31864, 1),
+"update": 0,
+"values": [Vector2(0, -420), Vector2(0, -420), Vector2(0, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.156863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_23fqi"]
+_data = {
+"RESET": SubResource("Animation_7036f"),
+"gameover": SubResource("Animation_qfh3e")
+}
+
+[node name="gameover" type="Node2D"]
+script = ExtResource("1_1oqeo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -438.0
+offset_top = -352.0
+offset_right = 571.0
+offset_bottom = 156.0
+texture = ExtResource("1_kh5k7")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Spotlight" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.301961)
+position = Vector2(3.8147e-06, -136.5)
+scale = Vector2(1.38021, 1.43359)
+texture = ExtResource("2_5047h")
+
+[node name="Box1" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.376471, 0.376471, 0.376471, 1)
+position = Vector2(30, -15)
+texture = ExtResource("3_kh1tw")
+
+[node name="Box2" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.376471, 0.376471, 0.376471, 1)
+position = Vector2(56, -20)
+rotation = 0.523598
+texture = ExtResource("3_kh1tw")
+
+[node name="Charsad" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+position = Vector2(-19, -15)
+rotation = 0.523598
+texture = ExtResource("4_5vjxg")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -438.0
+offset_top = -352.0
+offset_right = 387.0
+offset_bottom = 156.0
+texture = ExtResource("6_3e2ng")
+
+[node name="Timeover" type="Label" parent="."]
+offset_left = -127.0
+offset_top = -380.0
+offset_right = 125.0
+offset_bottom = -329.0
+text = "TIME OVER"
+label_settings = SubResource("LabelSettings_vfa5v")
+
+[node name="ResultUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -420.0
+offset_right = 40.0
+offset_bottom = -380.0
+mouse_filter = 2
+
+[node name="Clipboard" type="TextureRect" parent="ResultUI"]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -299.0
+offset_right = 138.0
+offset_bottom = 68.0
+mouse_filter = 2
+texture = ExtResource("3_uvv6a")
+
+[node name="ScoreLabel" type="Label" parent="ResultUI"]
+layout_mode = 0
+offset_left = -90.0
+offset_top = -221.0
+offset_right = 91.0
+offset_bottom = -190.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_cu787")
+horizontal_alignment = 1
+
+[node name="HotelLabel" type="Label" parent="ResultUI"]
+layout_mode = 0
+offset_left = -90.0
+offset_top = -190.0
+offset_right = 91.0
+offset_bottom = -159.0
+text = "Hotels: 0"
+label_settings = SubResource("LabelSettings_cu787")
+horizontal_alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="ResultUI"]
+layout_mode = 0
+offset_left = -90.0
+offset_top = -141.0
+offset_right = 91.0
+offset_bottom = -110.0
+text = "Best Score: 0"
+label_settings = SubResource("LabelSettings_cu787")
+horizontal_alignment = 1
+
+[node name="Tiptext" type="Label" parent="ResultUI"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -95.0
+offset_right = 98.0
+offset_bottom = -41.0
+text = "You don't have to deliver those packages in particular order. Find the best route!"
+label_settings = SubResource("LabelSettings_uhncd")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="ResultUI"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -21.0
+offset_right = 54.0
+offset_bottom = 6.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_up07w")
+text = "Retry"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dls72")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "gameover"
+libraries = {
+"": SubResource("AnimationLibrary_23fqi")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+zoom = Vector2(1.6, 1.6)
+
+[connection signal="pressed" from="ResultUI/Button" to="." method="_on_button_pressed"]

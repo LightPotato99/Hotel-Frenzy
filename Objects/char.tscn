@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b87rxs3yhpxvl"]
+
+[ext_resource type="Script" path="res://Scripts/char.gd" id="1_emrjw"]
+[ext_resource type="Texture2D" uid="uid://prd0uwk4dvf6" path="res://Graphics/CharHead.png" id="2_8gtmf"]
+[ext_resource type="Texture2D" uid="uid://chj32dk6nh814" path="res://Graphics/BoxStack1.png" id="4_0tyfj"]
+[ext_resource type="AudioStream" uid="uid://kcy6s60kag2r" path="res://Sounds/60013__qubodup__whoosh.wav" id="4_5s347"]
+[ext_resource type="AudioStream" uid="uid://p4ughpf34ct0" path="res://Sounds/263133__pan14__tone-beep.wav" id="5_0axrm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skqy2"]
+
+[node name="Character" type="CharacterBody2D" groups=["player"]]
+position = Vector2(0, 80)
+script = ExtResource("1_emrjw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_skqy2")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Head" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 8)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_8gtmf")
+
+[node name="Boxstack" type="Sprite2D" parent="Sprites"]
+position = Vector2(15, 2.25)
+scale = Vector2(0.5, 0.4625)
+texture = ExtResource("4_0tyfj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="whoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5s347")
+
+[node name="ev" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0axrm")
+volume_db = -6.443
+pitch_scale = 1.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

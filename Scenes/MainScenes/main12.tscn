@@ -1,0 +1,318 @@
+[gd_scene load_steps=21 format=3 uid="uid://d3cxn6xw7id0y"]
+
+[ext_resource type="Script" path="res://Scripts/doorManager.gd" id="1_hoyqg"]
+[ext_resource type="Texture2D" uid="uid://cwtv01fbt8aqb" path="res://Graphics/WallBack.png" id="2_uystn"]
+[ext_resource type="PackedScene" uid="uid://toc1ceudtoyx" path="res://Objects/Elevator.tscn" id="3_2s328"]
+[ext_resource type="Texture2D" uid="uid://ckrkg67uridwh" path="res://Graphics/Lightbulb1.png" id="3_jn807"]
+[ext_resource type="Texture2D" uid="uid://dxhugouv1rin0" path="res://Graphics/Floor.png" id="3_oigth"]
+[ext_resource type="Texture2D" uid="uid://c5s71irv3ue5y" path="res://Graphics/Lightbulb2.png" id="4_6lnwe"]
+[ext_resource type="PackedScene" uid="uid://bo6x6e6jo4l3p" path="res://Objects/Door.tscn" id="4_t0bbx"]
+[ext_resource type="Texture2D" uid="uid://0hhyuiik476k" path="res://Graphics/Lightbulb3.png" id="5_2122q"]
+[ext_resource type="PackedScene" uid="uid://cist64y4no0ag" path="res://Objects/Truck.tscn" id="5_iqn6m"]
+[ext_resource type="Texture2D" uid="uid://btpiufk4qqxpi" path="res://Graphics/EvWall.png" id="5_x8xn8"]
+[ext_resource type="Texture2D" uid="uid://d0sbxfpjdwcen" path="res://Graphics/Lightbulb4.png" id="6_gjkxo"]
+[ext_resource type="Texture2D" uid="uid://wgaof7mxn8qv" path="res://Graphics/Ceiling.png" id="6_je1jn"]
+[ext_resource type="PackedScene" uid="uid://b87rxs3yhpxvl" path="res://Objects/char.tscn" id="6_o0b4r"]
+[ext_resource type="Texture2D" uid="uid://bmtjpoyochlve" path="res://Graphics/Wall.png" id="7_a3p4o"]
+[ext_resource type="PackedScene" uid="uid://5e57csbpkpwh" path="res://Objects/UI.tscn" id="7_axu8j"]
+[ext_resource type="Texture2D" uid="uid://bawpv6wxs7xck" path="res://Graphics/CarRoad.png" id="9_528mr"]
+[ext_resource type="Texture2D" uid="uid://cf1wguqxkuvb0" path="res://Graphics/GroundGrass.png" id="10_8734k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gexj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jn807")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6lnwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2122q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gjkxo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73jda"]
+size = Vector2(60, 191.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6l6m"]
+size = Vector2(60.875, 337.25)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+zoom = Vector2(1.6, 1.6)
+
+[node name="Building" type="Node2D" parent="."]
+script = ExtResource("1_hoyqg")
+
+[node name="Timer" type="Timer" parent="Building"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="WallBack" type="TextureRect" parent="Building"]
+offset_left = -360.0
+offset_top = -276.0
+offset_right = 359.0
+offset_bottom = 54.0
+texture = ExtResource("2_uystn")
+stretch_mode = 1
+
+[node name="Deco" type="Node2D" parent="Building"]
+
+[node name="Lightbulb" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(90, -11)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_7gexj")
+autoplay = "default"
+
+[node name="Lightbulb2" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(210, -11)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_7gexj")
+autoplay = "default"
+
+[node name="Floors" type="Node2D" parent="Building"]
+
+[node name="Floor4" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -69.0
+offset_right = 330.0
+offset_bottom = -29.0
+texture = ExtResource("3_oigth")
+stretch_mode = 1
+
+[node name="Floor6" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -249.0
+offset_right = 330.0
+offset_bottom = -209.0
+texture = ExtResource("3_oigth")
+stretch_mode = 1
+
+[node name="Floor7" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -189.0
+offset_right = 332.0
+offset_bottom = -149.0
+texture = ExtResource("3_oigth")
+stretch_mode = 1
+
+[node name="Floor8" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -129.0
+offset_right = 330.0
+offset_bottom = -89.0
+texture = ExtResource("3_oigth")
+stretch_mode = 1
+
+[node name="Floor5" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -9.0
+offset_right = 330.0
+offset_bottom = 31.0
+texture = ExtResource("3_oigth")
+stretch_mode = 1
+
+[node name="Walls" type="Node2D" parent="Building"]
+
+[node name="Wall" type="StaticBody2D" parent="Building/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(-150, -123.5)
+shape = SubResource("RectangleShape2D_73jda")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(150, -122.25)
+shape = SubResource("RectangleShape2D_73jda")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(-386.875, -131.375)
+shape = SubResource("RectangleShape2D_a6l6m")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(390, -120)
+shape = SubResource("RectangleShape2D_a6l6m")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Wall4" type="TextureRect" parent="Building/Walls"]
+offset_left = -180.0
+offset_top = -217.0
+offset_right = -120.0
+offset_bottom = -44.0
+texture = ExtResource("7_a3p4o")
+stretch_mode = 1
+
+[node name="Wall5" type="TextureRect" parent="Building/Walls"]
+offset_left = 120.0
+offset_top = -218.0
+offset_right = 180.0
+offset_bottom = -44.0
+texture = ExtResource("7_a3p4o")
+stretch_mode = 1
+
+[node name="Elevators" type="Node2D" parent="Building"]
+
+[node name="EvWall4" type="TextureRect" parent="Building/Elevators"]
+offset_left = -360.0
+offset_top = -278.0
+offset_right = -240.0
+offset_bottom = 23.0
+texture = ExtResource("5_x8xn8")
+stretch_mode = 1
+
+[node name="EvWall5" type="TextureRect" parent="Building/Elevators"]
+offset_left = -60.0
+offset_top = -278.0
+offset_right = 60.0
+offset_bottom = 23.0
+texture = ExtResource("5_x8xn8")
+stretch_mode = 1
+
+[node name="EvWall6" type="TextureRect" parent="Building/Elevators"]
+offset_left = 240.0
+offset_top = -278.0
+offset_right = 360.0
+offset_bottom = 23.0
+texture = ExtResource("5_x8xn8")
+stretch_mode = 1
+
+[node name="ev" parent="Building/Elevators" instance=ExtResource("3_2s328")]
+
+[node name="ev3" parent="Building/Elevators" instance=ExtResource("3_2s328")]
+position = Vector2(300, 0)
+
+[node name="ev4" parent="Building/Elevators" instance=ExtResource("3_2s328")]
+position = Vector2(-300, -240)
+start_elev = 5
+
+[node name="Doors" type="Node2D" parent="Building"]
+
+[node name="101" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-210, 0)
+
+[node name="102" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-150, 0)
+
+[node name="103" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-90, 0)
+
+[node name="201" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-210, -60)
+
+[node name="202" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-90, -60)
+
+[node name="203" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(90, -60)
+
+[node name="204" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(210, -60)
+
+[node name="301" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-210, -120)
+
+[node name="302" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-90, -120)
+
+[node name="303" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(90, -120)
+
+[node name="304" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(210, -120)
+
+[node name="401" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-210, -180)
+
+[node name="402" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-90, -180)
+
+[node name="403" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(90, -180)
+
+[node name="404" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(210, -180)
+
+[node name="501" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-210, -240)
+
+[node name="502" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-150, -240)
+
+[node name="503" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(-90, -240)
+
+[node name="504" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(90, -240)
+
+[node name="505" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(150, -240)
+
+[node name="506" parent="Building/Doors" instance=ExtResource("4_t0bbx")]
+position = Vector2(210, -240)
+
+[node name="Truck" parent="Building/Doors" groups=["truck"] instance=ExtResource("5_iqn6m")]
+position = Vector2(150, 0)
+
+[node name="Ceiling" type="TextureRect" parent="Building"]
+offset_left = -361.0
+offset_top = -338.0
+offset_right = 359.0
+offset_bottom = -274.0
+texture = ExtResource("6_je1jn")
+stretch_mode = 1
+
+[node name="Wall" type="TextureRect" parent="Building"]
+offset_left = -420.0
+offset_top = -274.0
+offset_right = -356.0
+offset_bottom = 27.0
+texture = ExtResource("7_a3p4o")
+stretch_mode = 1
+
+[node name="Wall2" type="TextureRect" parent="Building"]
+offset_left = 359.0
+offset_top = -274.0
+offset_right = 423.0
+offset_bottom = 23.0
+texture = ExtResource("7_a3p4o")
+stretch_mode = 1
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_o0b4r")]
+position = Vector2(150, 0)
+
+[node name="CarRoad" type="TextureRect" parent="."]
+offset_left = -360.0
+offset_top = 23.0
+offset_right = 360.0
+offset_bottom = 55.0
+texture = ExtResource("9_528mr")
+stretch_mode = 1
+
+[node name="GroundGrass" type="TextureRect" parent="."]
+offset_left = -360.0
+offset_top = 55.0
+offset_right = 360.0
+offset_bottom = 87.0
+texture = ExtResource("10_8734k")
+stretch_mode = 1
+
+[node name="Control" parent="." instance=ExtResource("7_axu8j")]
+offset_top = -319.0
+
+[connection signal="all_set_delivered" from="Building" to="Building/Doors/Truck" method="_on_building_all_set_delivered"]
+[connection signal="all_set_delivered" from="Building" to="Control" method="_on_building_all_set_delivered"]
+[connection signal="made_list" from="Building" to="Control" method="_on_building_made_list"]
+[connection signal="timeout" from="Building/Timer" to="Building" method="_on_timer_timeout"]
+[connection signal="got_score" from="CharacterBody2D" to="Control" method="_on_character_body_2d_got_score"]

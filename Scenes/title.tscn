@@ -1,0 +1,303 @@
+[gd_scene load_steps=25 format=3 uid="uid://5um4vp7m1cm6"]
+
+[ext_resource type="Texture2D" uid="uid://cwtv01fbt8aqb" path="res://Graphics/WallBack.png" id="1_etjk8"]
+[ext_resource type="Texture2D" uid="uid://bk8o4nm2i01dh" path="res://Graphics/Column.png" id="2_rp2ql"]
+[ext_resource type="Texture2D" uid="uid://dxhugouv1rin0" path="res://Graphics/Floor.png" id="2_t7kop"]
+[ext_resource type="Texture2D" uid="uid://btpiufk4qqxpi" path="res://Graphics/EvWall.png" id="3_8oifp"]
+[ext_resource type="Texture2D" uid="uid://ckrkg67uridwh" path="res://Graphics/Lightbulb1.png" id="3_l5hcd"]
+[ext_resource type="PackedScene" uid="uid://toc1ceudtoyx" path="res://Objects/Elevator.tscn" id="4_p7h7s"]
+[ext_resource type="Texture2D" uid="uid://c5s71irv3ue5y" path="res://Graphics/Lightbulb2.png" id="4_sjvrb"]
+[ext_resource type="Texture2D" uid="uid://0hhyuiik476k" path="res://Graphics/Lightbulb3.png" id="5_2bx1o"]
+[ext_resource type="PackedScene" uid="uid://bo6x6e6jo4l3p" path="res://Objects/Door.tscn" id="5_eqv8t"]
+[ext_resource type="Texture2D" uid="uid://wgaof7mxn8qv" path="res://Graphics/Ceiling.png" id="6_0rpyd"]
+[ext_resource type="Texture2D" uid="uid://d0sbxfpjdwcen" path="res://Graphics/Lightbulb4.png" id="6_6uii2"]
+[ext_resource type="Script" path="res://Scripts/tutodoor.gd" id="6_8s6fa"]
+[ext_resource type="Texture2D" uid="uid://bmtjpoyochlve" path="res://Graphics/Wall.png" id="7_ys8sf"]
+[ext_resource type="Texture2D" uid="uid://bawpv6wxs7xck" path="res://Graphics/CarRoad.png" id="8_ttwec"]
+[ext_resource type="Texture2D" uid="uid://cf1wguqxkuvb0" path="res://Graphics/GroundGrass.png" id="9_2uqtf"]
+[ext_resource type="PackedScene" uid="uid://b87rxs3yhpxvl" path="res://Objects/char.tscn" id="10_eo7b3"]
+[ext_resource type="Texture2D" uid="uid://w00vjyxcsq33" path="res://Graphics/Title.png" id="11_3y40h"]
+[ext_resource type="AudioStream" uid="uid://b2psspeq8stp7" path="res://Sounds/PerituneMaterial_Windmill_Village.mp3" id="13_afbjj"]
+[ext_resource type="FontFile" uid="uid://dlblxlar8xkm3" path="res://Fonts/CODE Bold.otf" id="14_roh2u"]
+[ext_resource type="Texture2D" uid="uid://bfykc14mewe5b" path="res://Graphics/Lclick.png" id="15_6181i"]
+[ext_resource type="Texture2D" uid="uid://bat3avu3n506y" path="res://Graphics/Rclick.png" id="16_i2h04"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cwdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l5hcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sjvrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2bx1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6uii2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieh55"]
+size = Vector2(60.875, 306.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_63k8v"]
+font = ExtResource("14_roh2u")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+zoom = Vector2(1.6, 1.6)
+
+[node name="Building" type="Node2D" parent="."]
+
+[node name="WallBack" type="TextureRect" parent="Building"]
+offset_left = -330.0
+offset_top = -276.0
+offset_right = 330.0
+offset_bottom = 54.0
+texture = ExtResource("1_etjk8")
+stretch_mode = 1
+
+[node name="Deco" type="Node2D" parent="Building"]
+
+[node name="Column" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(-210, -9)
+texture = ExtResource("2_rp2ql")
+
+[node name="Column2" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(-210, -71)
+texture = ExtResource("2_rp2ql")
+
+[node name="Column3" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(-210, -132)
+texture = ExtResource("2_rp2ql")
+
+[node name="Column6" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(210, -9)
+texture = ExtResource("2_rp2ql")
+
+[node name="Column7" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(210, -71)
+texture = ExtResource("2_rp2ql")
+
+[node name="Column8" type="Sprite2D" parent="Building/Deco"]
+position = Vector2(210, -132)
+texture = ExtResource("2_rp2ql")
+
+[node name="Lightbulb" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(-76, -71)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4cwdh")
+autoplay = "default"
+
+[node name="Lightbulb2" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(74, -71)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4cwdh")
+autoplay = "default"
+
+[node name="Lightbulb3" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(-76, -191)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4cwdh")
+autoplay = "default"
+
+[node name="Lightbulb4" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(74, -191)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4cwdh")
+autoplay = "default"
+
+[node name="Lightbulb5" type="AnimatedSprite2D" parent="Building/Deco"]
+position = Vector2(0, -191)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4cwdh")
+autoplay = "default"
+
+[node name="Floors" type="Node2D" parent="Building"]
+
+[node name="Floor11" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -187.0
+offset_right = 54.0
+offset_bottom = -147.0
+texture = ExtResource("2_t7kop")
+stretch_mode = 1
+
+[node name="Floor8" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -129.0
+offset_right = 332.0
+offset_bottom = -89.0
+texture = ExtResource("2_t7kop")
+stretch_mode = 1
+
+[node name="Floor9" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -69.0
+offset_right = 332.0
+offset_bottom = -29.0
+texture = ExtResource("2_t7kop")
+stretch_mode = 1
+
+[node name="Floor10" type="TextureRect" parent="Building/Floors"]
+offset_left = 54.0
+offset_top = -9.0
+offset_right = 332.0
+offset_bottom = 31.0
+texture = ExtResource("2_t7kop")
+stretch_mode = 1
+
+[node name="Floor5" type="TextureRect" parent="Building/Floors"]
+offset_left = -330.0
+offset_top = -9.0
+offset_right = -54.0
+offset_bottom = 31.0
+texture = ExtResource("2_t7kop")
+stretch_mode = 1
+
+[node name="Walls" type="Node2D" parent="Building"]
+
+[node name="Wall" type="StaticBody2D" parent="Building/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(-360.875, -120)
+shape = SubResource("RectangleShape2D_ieh55")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Building/Walls/Wall"]
+position = Vector2(360.438, -120)
+shape = SubResource("RectangleShape2D_ieh55")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Elevators" type="Node2D" parent="Building"]
+
+[node name="EvWall" type="TextureRect" parent="Building/Elevators"]
+offset_left = -60.0
+offset_top = -155.0
+offset_right = 60.0
+offset_bottom = 23.0
+texture = ExtResource("3_8oifp")
+stretch_mode = 1
+
+[node name="ev" parent="Building/Elevators" instance=ExtResource("4_p7h7s")]
+elev_max = 3
+
+[node name="Doors" type="Node2D" parent="Building"]
+
+[node name="Start" parent="Building/Doors" instance=ExtResource("5_eqv8t")]
+position = Vector2(210, -120)
+script = ExtResource("6_8s6fa")
+
+[node name="Timer" type="Timer" parent="Building/Doors/Start"]
+wait_time = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Building/Doors/Start"]
+position = Vector2(-285, 120)
+stream = ExtResource("13_afbjj")
+autoplay = true
+
+[node name="Ceiling" type="TextureRect" parent="Building"]
+offset_left = -361.0
+offset_top = -338.0
+offset_right = 359.0
+offset_bottom = -274.0
+texture = ExtResource("6_0rpyd")
+stretch_mode = 1
+
+[node name="Wall" type="TextureRect" parent="Building"]
+offset_left = -390.0
+offset_top = -274.0
+offset_right = -330.0
+offset_bottom = 23.0
+texture = ExtResource("7_ys8sf")
+stretch_mode = 1
+
+[node name="Wall2" type="TextureRect" parent="Building"]
+offset_left = 330.0
+offset_top = -274.0
+offset_right = 394.0
+offset_bottom = 23.0
+texture = ExtResource("7_ys8sf")
+stretch_mode = 1
+
+[node name="CarRoad" type="TextureRect" parent="."]
+offset_left = -360.0
+offset_top = 23.0
+offset_right = 360.0
+offset_bottom = 55.0
+texture = ExtResource("8_ttwec")
+stretch_mode = 1
+
+[node name="GroundGrass" type="TextureRect" parent="."]
+offset_left = -360.0
+offset_top = 55.0
+offset_right = 360.0
+offset_bottom = 87.0
+texture = ExtResource("9_2uqtf")
+stretch_mode = 1
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("10_eo7b3")]
+position = Vector2(-270, 0)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(-220, -217)
+texture = ExtResource("11_3y40h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = -270.0
+offset_right = 317.0
+offset_bottom = -247.0
+scale = Vector2(0.5, 0.5)
+text = "2023 Lightpotato"
+label_settings = SubResource("LabelSettings_63k8v")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -185.0
+offset_top = -30.0
+offset_right = -86.0
+offset_bottom = -7.0
+scale = Vector2(0.5, 0.5)
+text = "Use Elevator"
+label_settings = SubResource("LabelSettings_63k8v")
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = -143.0
+offset_right = 189.0
+offset_bottom = -120.0
+scale = Vector2(0.5, 0.5)
+text = "Deliver"
+label_settings = SubResource("LabelSettings_63k8v")
+
+[node name="Lclick" type="Sprite2D" parent="."]
+position = Vector2(-150, -60)
+texture = ExtResource("15_6181i")
+
+[node name="Lclick2" type="Sprite2D" parent="."]
+position = Vector2(120, -169)
+texture = ExtResource("15_6181i")
+
+[node name="Rclick" type="Sprite2D" parent="."]
+position = Vector2(-120, -60)
+texture = ExtResource("16_i2h04")
+
+[connection signal="timeout" from="Building/Doors/Start/Timer" to="Building/Doors/Start" method="_on_timer_timeout"]

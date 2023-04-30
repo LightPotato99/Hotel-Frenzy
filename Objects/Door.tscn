@@ -1,0 +1,187 @@
+[gd_scene load_steps=25 format=3 uid="uid://bo6x6e6jo4l3p"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_wtbxk"]
+[ext_resource type="Texture2D" uid="uid://c22u8mki7f57g" path="res://Graphics/Door/Door.png" id="2_xd8ae"]
+[ext_resource type="Texture2D" uid="uid://c6t7wt8o2unfj" path="res://Graphics/BoxStack0.png" id="3_ho4r2"]
+[ext_resource type="FontFile" uid="uid://dwyxpj40gos5h" path="res://Fonts/CODE Light.otf" id="3_sa8wf"]
+[ext_resource type="Texture2D" uid="uid://bc6bllx7btfq8" path="res://Graphics/Box1.png" id="5_5bta5"]
+[ext_resource type="Texture2D" uid="uid://c3bwyfwo6aerw" path="res://Graphics/Door/Door1.png" id="6_hy0qh"]
+[ext_resource type="Texture2D" uid="uid://dflvrvnibhgk7" path="res://Graphics/Door/Door2.png" id="7_yvg5c"]
+[ext_resource type="Texture2D" uid="uid://c84v5yo6fj7cf" path="res://Graphics/Door/Door3.png" id="8_evymt"]
+[ext_resource type="Texture2D" uid="uid://dx4gmhjlurwk7" path="res://Graphics/Door/Door4.png" id="9_ij8uf"]
+[ext_resource type="Texture2D" uid="uid://bysbdlevjmvjg" path="res://Graphics/Door/Door5.png" id="10_ykuv3"]
+[ext_resource type="Texture2D" uid="uid://dx07u6gl65euw" path="res://Graphics/Door/Door6.png" id="11_vtpsh"]
+[ext_resource type="Texture2D" uid="uid://c4n2b7k3w8b6e" path="res://Graphics/Door/Door7.png" id="12_2bn8s"]
+[ext_resource type="Texture2D" uid="uid://4ivepahtky7k" path="res://Graphics/Door/Door8.png" id="13_motyw"]
+[ext_resource type="Texture2D" uid="uid://cfe18acwt6xgl" path="res://Graphics/Door/Door9.png" id="14_dayld"]
+[ext_resource type="Texture2D" uid="uid://x4o7j7x1l54q" path="res://Graphics/Door/Door10.png" id="15_1a0nf"]
+[ext_resource type="Texture2D" uid="uid://nlrnh8k128ol" path="res://Graphics/Door/Door11.png" id="16_8lxt0"]
+[ext_resource type="Texture2D" uid="uid://dh362kcfiva6o" path="res://Graphics/Door/Door12.png" id="17_yaq1u"]
+[ext_resource type="Texture2D" uid="uid://xa68sveval7c" path="res://Graphics/Door/Door13.png" id="18_x71pl"]
+[ext_resource type="Texture2D" uid="uid://bcfmlqsenqyuh" path="res://Graphics/Door/Door14.png" id="19_pdkni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8dt6"]
+size = Vector2(28, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vq283"]
+font = ExtResource("3_sa8wf")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8kyx7"]
+resource_name = "RESET"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xd8ae")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Box:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ho4r2")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Box:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Box:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r85u7"]
+resource_name = "open"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5bta5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.05, 1.1, 1.15, 1.2, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 2.2, 2.25, 2.3, 2.35, 2.4, 2.45, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xd8ae"), ExtResource("6_hy0qh"), ExtResource("7_yvg5c"), ExtResource("8_evymt"), ExtResource("9_ij8uf"), ExtResource("10_ykuv3"), ExtResource("11_vtpsh"), ExtResource("12_2bn8s"), ExtResource("13_motyw"), ExtResource("14_dayld"), ExtResource("15_1a0nf"), ExtResource("16_8lxt0"), ExtResource("17_yaq1u"), ExtResource("18_x71pl"), ExtResource("19_pdkni"), ExtResource("18_x71pl"), ExtResource("17_yaq1u"), ExtResource("16_8lxt0"), ExtResource("15_1a0nf"), ExtResource("14_dayld"), ExtResource("13_motyw"), ExtResource("12_2bn8s"), ExtResource("11_vtpsh"), ExtResource("10_ykuv3"), ExtResource("9_ij8uf"), ExtResource("8_evymt"), ExtResource("7_yvg5c"), ExtResource("6_hy0qh"), ExtResource("6_hy0qh")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Box:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.15, 2.25),
+"transitions": PackedFloat32Array(2.73208, 1, 0.31864, 1),
+"update": 0,
+"values": [Vector2(25, -20), Vector2(25, 5), Vector2(25, 5), Vector2(15, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Box:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.15, 2.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg6le"]
+_data = {
+"RESET": SubResource("Animation_8kyx7"),
+"open": SubResource("Animation_r85u7")
+}
+
+[node name="Door" type="Area2D" groups=["door"]]
+script = ExtResource("1_wtbxk")
+
+[node name="Door" type="Sprite2D" parent="."]
+texture = ExtResource("2_xd8ae")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(15, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_ho4r2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v8dt6")
+
+[node name="DoorLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 58.0
+offset_bottom = 5.0
+scale = Vector2(0.5, 0.5)
+text = "101"
+label_settings = SubResource("LabelSettings_vq283")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kg6le")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="." to="." method="_on_body_exited" flags=18]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=18 format=3 uid="uid://cist64y4no0ag"]
+
+[ext_resource type="Texture2D" uid="uid://dxfky0jnuyt34" path="res://Graphics/Truck.png" id="1_frxk6"]
+[ext_resource type="Script" path="res://Scripts/truck.gd" id="1_mca63"]
+[ext_resource type="Texture2D" uid="uid://cmcsrek45k1x4" path="res://Graphics/Truck2.png" id="2_1qdl6"]
+[ext_resource type="Texture2D" uid="uid://cfjdf4a0wgguc" path="res://Graphics/Circle.png" id="3_t0ehl"]
+[ext_resource type="Texture2D" uid="uid://dva4ae886swn6" path="res://Graphics/TruckArrow1.png" id="5_dxe88"]
+[ext_resource type="Texture2D" uid="uid://dvslmofcv1tor" path="res://Graphics/TruckArrow2.png" id="6_taskq"]
+[ext_resource type="Texture2D" uid="uid://d3x5jaxgyhrk1" path="res://Graphics/TruckArrow3.png" id="7_a0iy6"]
+[ext_resource type="Texture2D" uid="uid://dtnd4sdu3eynh" path="res://Graphics/TruckArrow4.png" id="8_rx4ii"]
+[ext_resource type="AudioStream" uid="uid://dfvqqf8qfxt2" path="res://Sounds/217542__medartimus__car-breaking-skid-01.wav" id="9_eir1i"]
+[ext_resource type="AudioStream" uid="uid://d38svpcgf4fdi" path="res://Sounds/458461__prometheus888__carengine.wav" id="10_3r0pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl8jw"]
+size = Vector2(72, 60)
+
+[sub_resource type="Animation" id="Animation_rdeck"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("1_frxk6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lu4xt"]
+resource_name = "arrive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.233258, 0.517633),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cru2g"]
+resource_name = "depart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6"), ExtResource("1_frxk6"), ExtResource("2_1qdl6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.73213, 3.73213),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3hw0"]
+_data = {
+"RESET": SubResource("Animation_rdeck"),
+"arrive": SubResource("Animation_lu4xt"),
+"depart": SubResource("Animation_cru2g")
+}
+
+[sub_resource type="Gradient" id="Gradient_yjc76"]
+colors = PackedColorArray(0.374139, 0.374139, 0.374139, 1, 0.568627, 0.568627, 0.568627, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8swsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dxe88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_taskq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a0iy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rx4ii")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Truck" type="Area2D"]
+script = ExtResource("1_mca63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vl8jw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_frxk6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l3hw0")
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-45, 15)
+lifetime = 0.4
+texture = ExtResource("3_t0ehl")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 55.0
+initial_velocity_max = 75.0
+linear_accel_min = -0.5
+scale_amount_min = 0.0
+color = Color(0.560784, 0.560784, 0.560784, 0.345098)
+color_ramp = SubResource("Gradient_yjc76")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="TruckArrow" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -49)
+sprite_frames = SubResource("SpriteFrames_8swsk")
+autoplay = "default"
+frame_progress = 0.0554946
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_eir1i")
+
+[node name="engine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_3r0pa")
+volume_db = 11.965
+pitch_scale = 1.4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

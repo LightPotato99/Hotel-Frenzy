@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://tqg4s4tgv8k0"]
+
+[ext_resource type="AudioStream" uid="uid://d31iuwmopgq3t" path="res://Sounds/PerituneMaterial_Unknown_Cities.mp3" id="1_tyb4p"]
+[ext_resource type="Script" path="res://Scripts/main_music.gd" id="2_cjbmq"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_tyb4p")
+script = ExtResource("2_cjbmq")

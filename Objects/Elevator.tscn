@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://toc1ceudtoyx"]
+
+[ext_resource type="Script" path="res://Scripts/elevator.gd" id="1_ejvsv"]
+[ext_resource type="Texture2D" uid="uid://b8hhrmsa8gjmx" path="res://Graphics/Elevator.png" id="1_yj432"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bw6v"]
+size = Vector2(74, 16)
+
+[node name="ev" type="Area2D" groups=["elevator"]]
+script = ExtResource("1_ejvsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3bw6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yj432")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
